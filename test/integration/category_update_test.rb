@@ -7,7 +7,7 @@ class UpdateCategoryTest < ActionDispatch::IntegrationTest
 		assert category.save
 		get edit_category_path(username: "username", category_id: 1)
 		assert_response :success
-		assert_difference "Category.count", 0 do
+		assert_difference "User.categories.size", 0 do
 			patch update_category_path(username: "username", category_id: 1), params: { category: { title: "title", description: "description" } }
 			assert_response :redirect
 		end

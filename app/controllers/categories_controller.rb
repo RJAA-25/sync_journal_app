@@ -1,11 +1,12 @@
 class CategoriesController < ApplicationController
 
   def new
-    @category = Category.new
+    @category = User.find_by(username: params[:username]).categories.build
   end
 
   def create
-    @category = Category.new(category_params)
+    # @category = Category.new(category_params)
+    @category = User.find_by(username: params[:username]).categories.build(category_params)
     if @category.save
       redirect_to index_user_path(username: "username")
     else

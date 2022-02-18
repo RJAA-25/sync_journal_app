@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  # before_action :cross_user_restriction, except: [:new, :create]
+  before_action :cross_user_restriction, except: [:new, :create]
   before_action :signup_restriction, only: :new
 
   def index
