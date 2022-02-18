@@ -25,6 +25,9 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new"
   post "login", to: "sessions#create"
 
+  #LOOGOUT
+  get "logout", to: "sessions#destroy"
+
   #USERS
   get ":username", to: "users#index", as: :index_user
   get ":username/edit", to: "users#edit", as: :edit_user
