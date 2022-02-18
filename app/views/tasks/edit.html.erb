@@ -1,0 +1,28 @@
+<h1>Edit Task</h1>
+
+<%= form_with model: @task, url: update_task_path(@url_hash) do |f|%>
+
+  <div>
+    <%= f.label :details, "Details" %>
+    <%= f.text_field :details %>
+    <% @task.errors.full_messages_for(:details).each do |message| %>
+			<p><%= message %></p>
+		<% end %>
+  </div>
+
+  <div>
+    <%= f.label :schedule, "Schedule" %>
+    <%= f.date_field :schedule %>
+    <% @task.errors.full_messages_for(:schedule).each do |message| %>
+			<p><%= message %></p>
+		<% end %>
+  </div>
+
+  <div>
+    <%= f.submit "Update" %>
+  </div>
+
+<% end %>
+
+<hr/>
+<%= button_to "Cancel", index_user_path(@url_hash), method: :get %>

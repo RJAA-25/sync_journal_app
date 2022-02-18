@@ -1,14 +1,15 @@
 class CategoriesController < ApplicationController
 
+  before_action :cross_user_restriction
+
   def new
-    @category = User.find_by(username: params[:username]).categories.build
+    @category = @user.categories.build
   end
 
   def create
-    # @category = Category.new(category_params)
-    @category = User.find_by(username: params[:username]).categories.build(category_params)
+    @category = @user.categories.build(category_params)
     if @category.save
-      redirect_to index_user_path(username: "username")
+      redirect_to index_user_path(@url_hash)
     else
       render "categories/new"
     end
@@ -21,7 +22,8 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find_by(id: params[:category_id])
     if @category.update(category_params)
-      redirect_to index_user_path(username: "username")
+      @url_hash[:category_id] = nil
+      redirect_to index_user_path(@url_hash)
     else
       render "categories/edit"
     end

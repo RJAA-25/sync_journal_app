@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  # get 'tasks/new'
+  # get 'tasks/create'
+  # get 'tasks/edit'
+  # get 'tasks/update'
+  # get 'tasks/destroy'
   # get 'categories/new'
   # get 'categories/create'
   # get 'categories/edit'
@@ -30,5 +35,13 @@ Rails.application.routes.draw do
   post ":username/category/new", to: "categories#create", as: :create_category
   get ":username/category/:category_id/edit", to: "categories#edit", as: :edit_category
   patch ":username/category/:category_id/edit", to: "categories#update", as: :update_category
+
+  #TASKS
+  get ":username/category/:category_id/task/new", to: "tasks#new", as: :new_task 
+  post ":username/category/:category_id/task/new", to: "tasks#create", as: :create_task
+  get ":username/category/:category_id/task/:task_id/edit", to: "tasks#edit", as: :edit_task
+  patch ":username/category/:category_id/task/:task_id/edit", to: "tasks#update", as: :update_task
+  get ":username/category/:category_id/task/:task_id/delete", to: "tasks#destroy", as: :destroy_task
+
 
 end

@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   before_action :signup_restriction, only: :new
 
   def index
-    # @categories = @user.categories.all
+    @categories = @user.categories
+    @tasks = @user.tasks.where(schedule: Date.today)
   end
 
   def new

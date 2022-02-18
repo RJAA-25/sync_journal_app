@@ -1,2 +1,44 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Hey, <%= @user.first_name %></h1>
+<hr/>
+<div>
+	<h2>Personal Stats</h2>
+	<p><%= @user.categories.size %> Categories created</p>
+	<p><%= @user.tasks.size %> Tasks scheduled</p>
+<div>
+<hr/>
+<h2>Overview</h2>
+<h3>Tasks for the Day</h3>
+<ul>
+	<% @tasks.each do |task| %>
+		<li>
+			<p><%= task.details %></p>
+		</li>
+	<% end %>
+</ul>
+<%= button_to "Add Category", new_category_path(@url_hash), method: :get %>
+<hr/>
+
+<% @categories.each do |ctgry| %>
+	<% @url_hash[:category_id] = ctgry.id %>
+	<div>
+		<h3><%= ctgry.title %></h3>
+		<em><%= ctgry.description %></em>
+		<%= button_to "Edit", edit_category_path(@url_hash), method: :get %>
+		<ul>
+			<% if ctgry.tasks.size == 0 %>
+				<em>No scheduled tasks yet</em> 
+			<% end %>
+			<% ctgry.tasks.each do |task| %>
+				<% @url_hash[:task_id] = task.id %>
+				<li>
+					<p><%= task.details %></p>
+					<p>Schedule: <%= task.schedule %></p>
+					<%= button_to "Edit", edit_task_path(@url_hash), method: :get %>
+					<%= button_to "Delete", destroy_task_path(@url_hash), method: :get %>
+				<li>
+			<% end %>
+			<%= button_to "Add Task", new_task_path(@url_hash), method: :get %>
+		</ul>
+	</div>
+	<hr/>
+<% end %>

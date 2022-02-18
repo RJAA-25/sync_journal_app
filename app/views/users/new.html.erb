@@ -1,2 +1,52 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign Up</h1>
+
+<%= form_with model: @user, url: signup_path do |f|%>
+    
+    <div>
+        <%= f.label :first_name, "First Name" %>
+        <%= f.text_field :first_name %>
+        <% @user.errors.full_messages_for(:first_name).each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+
+    <div>
+        <%= f.label :last_name, "Last Name" %>
+        <%= f.text_field :last_name %>
+        <% @user.errors.full_messages_for(:last_name).each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+
+    <div>
+        <%= f.label :username, "Username" %>
+        <%= f.text_field :username %>
+        <% @user.errors.full_messages_for(:username).each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+
+    <div>
+        <%= f.label :password, "Password" %>
+        <%= f.password_field :password %>
+        <% @user.errors.full_messages_for(:password).each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+
+    <div>
+        <%= f.label :password_confirmation, "Password Confirmation" %>
+        <%= f.password_field :password_confirmation %>
+        <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+    </div>
+    
+    <div>
+        <%= f.submit "Sign Up" %>
+    </div>
+
+<% end %>
+
+<hr/>
+<%= link_to "Home", root_path %>
