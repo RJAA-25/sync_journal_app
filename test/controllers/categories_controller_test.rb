@@ -1,23 +1,15 @@
 require "test_helper"
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
-    get categories_new_url
-    assert_response :success
-  end
 
-  test "should get create" do
-    get categories_create_url
+  test "should get new" do
+    get new_category_path(username: "username")
     assert_response :success
   end
 
   test "should get edit" do
-    get categories_edit_url
+    get edit_category_path(username: "username", category_id: 1)
     assert_response :success
   end
 
-  test "should get update" do
-    get categories_update_url
-    assert_response :success
-  end
 end

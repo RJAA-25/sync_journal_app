@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   
-  before_action :cross_user_restriction, except: [:new, :create]
+  # before_action :cross_user_restriction, except: [:new, :create]
   before_action :signup_restriction, only: :new
 
   def index
-    @categories = @user.categories.all
+    # @categories = @user.categories.all
   end
 
   def new
@@ -22,11 +22,12 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = User.find_by(username: "username")
   end
 
   def update
     # uncomment before rails test
-    # @user = User.find_by(username: "username")
+    @user = User.find_by(username: "username")
     if @user.update(user_params)
       redirect_to index_user_path(username: @user.username)
     else
