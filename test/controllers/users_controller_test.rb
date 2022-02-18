@@ -1,6 +1,7 @@
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  #  comment out cross_user_restriction before testing
 
   test "should get index" do
     get index_user_path(username: "username")

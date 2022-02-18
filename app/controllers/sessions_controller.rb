@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 	
-	before_action :session_restriction
+	before_action :login_restriction, only: :new
 
 	def new;end
 
@@ -15,7 +15,8 @@ class SessionsController < ApplicationController
 	end
 
 	private
-	def session_restriction
+	def login_restriction
 		redirect_to index_user_path(current_user.username) if logged_in?
 	end
+	
 end
