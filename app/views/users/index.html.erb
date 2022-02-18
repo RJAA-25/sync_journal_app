@@ -1,5 +1,6 @@
 <h1>Hey, <%= @user.first_name %></h1>
-<%= button_to "Log Out", logout_path, method: :get %>
+<%#= button_to "Log Out", logout_path, method: :get %>
+<%= link_to "Log Out", logout_path, %>
 <hr/>
 <div>
 	<h2>Personal Stats</h2>
@@ -16,7 +17,8 @@
 		</li>
 	<% end %>
 </ul>
-<%= button_to "Add Category", new_category_path(@url_hash), method: :get %>
+<%#= button_to "Add Category", new_category_path(@url_hash), method: :get %>
+<%= link_to "Add Category", new_category_path(@url_hash) %>
 <hr/>
 
 <% @categories.each do |ctgry| %>
@@ -24,7 +26,8 @@
 	<div>
 		<h3><%= ctgry.title %></h3>
 		<em><%= ctgry.description %></em>
-		<%= button_to "Edit", edit_category_path(@url_hash), method: :get %>
+		<%#= button_to "Edit", edit_category_path(@url_hash), method: :get %>
+		<%= link_to "Edit", edit_category_path(@url_hash) %>
 		<ul>
 			<% if ctgry.tasks.size == 0 %>
 				<em>No scheduled tasks yet</em> 
@@ -34,11 +37,14 @@
 				<li>
 					<p><%= task.details %></p>
 					<p>Schedule: <%= task.schedule %></p>
-					<%= button_to "Edit", edit_task_path(@url_hash), method: :get %>
-					<%= button_to "Delete", destroy_task_path(@url_hash), method: :get %>
+					<%#= button_to "Edit", edit_task_path(@url_hash), method: :get %>
+					<%#= button_to "Delete", destroy_task_path(@url_hash), method: :get %>
+					<%= link_to "Edit", edit_task_path(@url_hash) %>
+					<%= link_to "Delete", destroy_task_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
 				<li>
 			<% end %>
-			<%= button_to "Add Task", new_task_path(@url_hash), method: :get %>
+			<%#= button_to "Add Task", new_task_path(@url_hash), method: :get %>
+			<%= link_to "Add Task", new_task_path(@url_hash) %>
 		</ul>
 	</div>
 	<hr/>

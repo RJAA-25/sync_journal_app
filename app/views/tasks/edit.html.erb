@@ -25,4 +25,5 @@
 <% end %>
 
 <hr/>
-<%= button_to "Cancel", index_user_path(@url_hash), method: :get %>
+<%#= button_to "Cancel", index_user_path(@url_hash), method: :get %>
+<%= link_to "Cancel" index_user_path(@url_hash) %>
