@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_user, :logged_in?
-	# :cross_user_restriction
+  helper_method :current_user, :logged_in?, :cross_user_restriction
 
 	def current_user
 		User.find_by(id: session[:user_id])
