@@ -7,10 +7,16 @@ Rails.application.routes.draw do
 
   # ROOT
   root "landings#index"
-
-  get ":username", to: "users#index", as: :index_user
+  
+  #SIGNUP
   get "signup", to: "users#new"
   post "signup", to: "users#create"
+
+  #LOGIN
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+
+  get ":username", to: "users#index", as: :index_user
   get ":username/edit", to: "users#edit", as: :edit_user
   patch ":username/edit", to: "users#update", as: :update_user
 
