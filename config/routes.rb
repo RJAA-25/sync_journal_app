@@ -1,19 +1,5 @@
 Rails.application.routes.draw do
-
-  # get 'tasks/new'
-  # get 'tasks/create'
-  # get 'tasks/edit'
-  # get 'tasks/update'
-  # get 'tasks/destroy'
-  # get 'categories/new'
-  # get 'categories/create'
-  # get 'categories/edit'
-  # get 'categories/update'
-  # get 'users/index'
-  # get 'users/new'
-  # get 'users/create'
-  # get 'users/update'
-
+  
   # ROOT
   root "landings#index"
   
@@ -45,6 +31,5 @@ Rails.application.routes.draw do
   get ":username/category/:category_id/task/:task_id/edit", to: "tasks#edit", as: :edit_task
   patch ":username/category/:category_id/task/:task_id/edit", to: "tasks#update", as: :update_task
   get ":username/category/:category_id/task/:task_id/delete", to: "tasks#destroy", as: :destroy_task
-
 
 end

@@ -40,7 +40,7 @@
 					<%#= button_to "Edit", edit_task_path(@url_hash), method: :get %>
 					<%#= button_to "Delete", destroy_task_path(@url_hash), method: :get %>
 					<%= link_to "Edit", edit_task_path(@url_hash) %>
-					<%= link_to "Delete", destroy_task_path(@url_hash), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+					<%= link_to "Delete", destroy_task_path(@url_hash) %>
 				<li>
 			<% end %>
 			<%#= button_to "Add Task", new_task_path(@url_hash), method: :get %>
