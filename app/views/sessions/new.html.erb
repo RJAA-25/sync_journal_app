@@ -1,20 +1,45 @@
-<h1>Login</h1>
+<%= stylesheet_link_tag "login" %>
 
-<%= form_with scope: :session, url: login_path do |f| %>
+<div class="login-container">
+	<main>
+		<div class="login-title">
+			<h1>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+					/>
+				</svg>
+				SYNC
+			</h1>
+			<p>Stay on track</p>
+		</div>
 
-    <div>
-		<%= f.label :username, "Username" %>
-		<%= f.text_field :username %>
-	</div>
-	<div>
-		<%= f.label :password, "Password" %>
-		<%= f.password_field :password %>
-	</div>
-	<div>
-		<%= f.submit "Log In" %>
-	</div>
+		<%= form_with class: "login-form", scope: :session, url: login_path do |f| %>
+			<p class="form-title">Welcome Back</p>
+				<div>
+				<%= f.text_field :username, placeholder: "Username" %>
+			</div>
+			<div>
+				<%= f.password_field :password, placeholder: "Password" %>
+			</div>
+			<p class="error-msg">This is an error message</p>
+			<hr />
+			<%= f.submit "Log In", class: "form-btn" %>
+		<% end %>
 
-<% end %>
-
-<hr/>
-<%= link_to "Home", root_path %>
+		<div class="login-buttons">
+			<%= link_to "Login", login_path, class: "btn login" %>
+			<%= link_to "Sign Up", signup_path, class: "btn signup" %>
+		</div>
+	</main>
+	<footer>Avion School Project Batch 14</footer>
+</div>

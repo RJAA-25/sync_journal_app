@@ -1,52 +1,65 @@
-<h1>Sign Up</h1>
+<%= stylesheet_link_tag "signup" %>
 
-<%= form_with model: @user, url: signup_path do |f| %>
-    
-    <div>
-        <%= f.label :first_name, "First Name" %>
-        <%= f.text_field :first_name %>
-        <% @user.errors.full_messages_for(:first_name).each do |message| %>
-            <p><%= message %></p>
-        <% end %>
-    </div>
-
-    <div>
-        <%= f.label :last_name, "Last Name" %>
-        <%= f.text_field :last_name %>
-        <% @user.errors.full_messages_for(:last_name).each do |message| %>
-            <p><%= message %></p>
-        <% end %>
-    </div>
-
-    <div>
-        <%= f.label :username, "Username" %>
-        <%= f.text_field :username %>
-        <% @user.errors.full_messages_for(:username).each do |message| %>
-            <p><%= message %></p>
-        <% end %>
-    </div>
-
-    <div>
-        <%= f.label :password, "Password" %>
-        <%= f.password_field :password %>
-        <% @user.errors.full_messages_for(:password).each do |message| %>
-            <p><%= message %></p>
-        <% end %>
-    </div>
-
-    <div>
-        <%= f.label :password_confirmation, "Password Confirmation" %>
-        <%= f.password_field :password_confirmation %>
-        <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
-            <p><%= message %></p>
-        <% end %>
-    </div>
-    
-    <div>
-        <%= f.submit "Sign Up" %>
-    </div>
-
-<% end %>
-
-<hr/>
-<%= link_to "Home", root_path %>
+<div class="signup-container">
+	<main>
+		<div class="signup-title">
+			<h1>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="icon"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+					/>
+				</svg>
+				SYNC
+			</h1>
+			<p>Stay on track</p>
+		</div>
+		<%= form_with class: "signup-form", model: @user, url: signup_path do |f| %>
+			<p class="form-title">Create an Account</p>
+			<div>
+					<%= f.text_field :first_name, placeholder: "First Name" %>
+					<% @user.errors.full_messages_for(:first_name).each do |message| %>
+							<p class="error-msg"><%= message %></p>
+					<% end %>
+			</div>
+			<div>
+					<%= f.text_field :last_name, placeholder: "Last Name" %>
+					<% @user.errors.full_messages_for(:last_name).each do |message| %>
+							<p class="error-msg"><%= message %></p>
+					<% end %>
+			</div>
+			<div>
+					<%= f.text_field :username, placeholder: "Username" %>
+					<% @user.errors.full_messages_for(:username).each do |message| %>
+							<p class="error-msg"><%= message %></p>
+					<% end %>
+			</div>
+			<div>
+					<%= f.password_field :password, placeholder: "Password" %>
+					<% @user.errors.full_messages_for(:password).each do |message| %>
+							<p class="error-msg"><%= message %></p>
+					<% end %>
+			</div>
+			<div>
+					<%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+					<% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+							<p class="error-msg"><%= message %></p>
+					<% end %>
+			</div>
+			<%= f.submit "Sign Up", class: "form-btn" %>
+		<% end %>
+		<div class="login-buttons">
+			<%= link_to "Login", login_path, class: "btn login" %>
+			<%= link_to "Sign Up", signup_path, class: "btn signup" %>
+		</div>
+	</main>
+	<footer>Avion School Project Batch 14</footer>
+</div>

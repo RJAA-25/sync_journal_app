@@ -1,8 +1,31 @@
-<h1>Landing Page</h1>
+<%= stylesheet_link_tag "home" %>
 
-
-<%#= button_to "Login", login_path, method: "get" %>
-<%#= button_to "Sign Up", signup_path, method: "get" %>
-
-<%= link_to "Login", login_path %>
-<%= link_to "Sign Up", signup_path %>
+<div class="home-container">
+  <main>
+    <div class="home-title">
+      <h1>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+          />
+        </svg>
+        SYNC
+      </h1>
+      <p>Stay on track</p>
+    </div>
+    <div class="home-buttons">
+      <%= link_to "Login", login_path, class: "btn" %>
+      <%= link_to "Sign Up", signup_path, class: "btn" %>
+    </div>
+  </main>
+  <footer>Avion School Project Batch 14</footer>
+</div>
