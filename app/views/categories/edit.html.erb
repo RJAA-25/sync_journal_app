@@ -1,26 +1,38 @@
-<h1>Edit Category</h1>
+<%= stylesheet_link_tag "category" %>
 
-<%= form_with model: @category, url: update_category_path(@url_hash) do |f|%>
-
-  <div>
-    <%= f.label :title, "Title" %>
-    <%= f.text_field :title %>
-    <% @category.errors.full_messages_for(:title).each do |message| %>
-			<p><%= message %></p>
-		<% end %>
-  </div>
-
-  <div>
-    <%= f.label :description, "Description" %>
-    <%= f.text_field :description %>
-  </div>
-
-  <div>
-    <%= f.submit "Update" %>
-  </div>
-
-<% end %>
-
-<hr/>
-<%#= button_to "Cancel", index_user_path(@url_hash), method: :get %>
-<%= link_to "Cancel", index_user_path(@url_hash) %>
+<div class="category-container">
+  <header>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
+      />
+    </svg>
+    SYNC
+  </header>
+  <main>
+    <%= form_with class: "category-form", model: @category, url: update_category_path(@url_hash) do |f|%>
+      <p class="form-title">Edit Category</p>
+      <div>
+        <%= f.text_field :title, placeholder:"Title" %>
+        <% @category.errors.full_messages_for(:title).each do |message| %>
+          <p class="error-msg"><%= message %></p>
+        <% end %>
+      </div>
+      <div>
+        <%= f.text_field :description, placeholder: "Description" %>
+      </div>
+      <%= f.submit "Update Category", class: "form-btn" %>
+      <%= link_to "Cancel", index_user_path(@url_hash), class: "cancel" %>
+    <% end %>
+  </main>
+  <footer>Avion School Project Batch 14</footer>
+</div>
