@@ -87,7 +87,7 @@
 							<h3><%= ctgry.title %></h3>
 							<div class="update-btns">
 								<%= link_to "Edit", edit_category_path(@url_hash), class: "update-btn white"  %>
-								<%= link_to "Del", new_category_path(@url_hash), class: "update-btn red"  %>
+								<%= link_to "Del", destroy_category_path(@url_hash), class: "update-btn red"  %>
 							</div>
 						</div>
 

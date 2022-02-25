@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   post ":username/category/new", to: "categories#create", as: :create_category
   get ":username/category/:category_id/edit", to: "categories#edit", as: :edit_category
   patch ":username/category/:category_id/edit", to: "categories#update", as: :update_category
+  get ":username/category/:category_id/delete", to: "categories#destroy", as: :destroy_category
 
   #TASKS
   get ":username/category/:category_id/task/new", to: "tasks#new", as: :new_task 

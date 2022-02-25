@@ -29,6 +29,13 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category = Category.find_by(id: params[:category_id])
+    @category.destroy
+    @url_hash[:category_id] = nil
+    redirect_to index_user_path(@url_hash)
+  end
+
   private
   def category_params
     params.require(:category).permit(:title, :description)
