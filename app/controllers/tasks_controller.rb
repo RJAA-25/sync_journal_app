@@ -11,6 +11,8 @@ class TasksController < ApplicationController
     @category = @user.categories.find_by(id: params[:category_id])
     @task = @category.tasks.build(task_params)
     if @task.save
+      @url_hash[:category_id] = nil
+      @url_hash[:task_id] = nil
       redirect_to index_user_path(@url_hash)
     else
       render "tasks/new"

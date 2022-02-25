@@ -25,7 +25,7 @@
 			<%= link_to "Log Out", logout_path, class: "logout-btn" %>
 		</div>
 
-		<% if @tasks.length == 0 %>
+		<% if @tasks.size == 0 %>
 			<div class="today">
 				<div class="today-title">
 					<svg
@@ -66,7 +66,7 @@
 				</div>
 				<ul class="today-list">
 					<% @tasks.each do |task| %>
-					<li><%= task.details %></li>
+						<li><%= task.details %></li>
 					<% end %>
 				</ul>	
 			</div>
@@ -75,7 +75,6 @@
 		<div class="overview">
 			<h2>Overview</h2>
 			<%= link_to "Add Category", new_category_path(@url_hash), class: "add-btn" %>
-			<%# <a href="#" class="add-btn"> Add Category </a> %>
 		</div>
 
 		<div class="overview-grid">
@@ -104,7 +103,6 @@
 									<div class="update-btns">
 										<%= link_to "Edit", edit_task_path(@url_hash), class: "update-btn green"  %>
 										<%= link_to "Del", destroy_task_path(@url_hash), class: "update-btn red"  %>
-
 									</div>	
 								</li>
 							<% end %>
@@ -114,9 +112,6 @@
 				</div>
 			<% end %>
 		</div>
-
-
-		
 	</main>
 	<footer>Avion School Project Batch 14</footer>
 </div>
