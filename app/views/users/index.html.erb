@@ -114,5 +114,7 @@
 		</div>
 	</main>
 	<footer>Avion School Project Batch 14</footer>
-	<p><%= flash[:notice] %></p>
+	<% if flash[:notice] != nil %>
+		<p class="notice fade-out"><%= flash[:notice] %></p>
+	<% end %>
 </div>

@@ -17,12 +17,12 @@ class SessionsController < ApplicationController
 
 	def destroy
 		session[:user_id] = nil
-		redirect_to root_path
+		redirect_to root_path, notice: "Signed out successfully" 
 	end
 
 	private
 	def login_restriction
-		redirect_to index_user_path(current_user.username) if logged_in?
+		redirect_to index_user_path(current_user.username)if logged_in?
 	end
 	
 end
