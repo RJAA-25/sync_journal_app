@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to index_user_path(username: @user.username)
+      redirect_to index_user_path(username: @user.username), notice: "Signed in successfully"
     else 
       render "users/new"
     end

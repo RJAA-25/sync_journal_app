@@ -8,8 +8,9 @@ class SessionsController < ApplicationController
 		@user = User.find_by(username: params[:session][:username])
 		if @user && @user.authenticate(params[:session][:password])
 			session[:user_id] = @user.id
-			redirect_to index_user_path(current_user.username)
+			redirect_to index_user_path(current_user.username), notice: "Logged in successfully"
 		else
+			flash.now[:alert] = "Invalid login credentials"
 			render "sessions/new"
 		end
 	end

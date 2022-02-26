@@ -31,7 +31,7 @@
         <%= f.text_field :description, placeholder: "Description" %>
       </div>
       <%= f.submit "Add Category", class: "form-btn" %>
-      <%= link_to "Cancel", index_user_path(@url_hash), class: "cancel" %>
+      <%= link_to "Cancel", index_user_path(current_user.username), class: "cancel" %>
     <% end %>
   </main>
   <footer>Avion School Project Batch 14</footer>
