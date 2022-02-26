@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     if @task.save
       @url_hash[:category_id] = nil
       @url_hash[:task_id] = nil
-      redirect_to index_user_path(@url_hash)
+      redirect_to index_user_path(@url_hash), notice: "Task created successfully"
     else
       render "tasks/new"
     end

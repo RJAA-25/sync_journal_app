@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
     if @category.save
       @url_hash[:category_id] = nil
       @url_hash[:task_id] = nil
-      redirect_to index_user_path(@url_hash)
+      redirect_to index_user_path(@url_hash), notice: "Category created successfully"
     else
       render "categories/new"
     end
